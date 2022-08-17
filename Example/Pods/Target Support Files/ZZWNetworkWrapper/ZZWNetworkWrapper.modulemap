@@ -1,0 +1,6 @@
+framework module ZZWNetworkWrapper {
+  umbrella header "ZZWNetworkWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}

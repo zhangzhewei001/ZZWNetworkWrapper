@@ -1,0 +1,16 @@
+PODS:
+  - ZZWNetworkWrapper (0.1.0)
+
+DEPENDENCIES:
+  - ZZWNetworkWrapper (from `../`)
+
+EXTERNAL SOURCES:
+  ZZWNetworkWrapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZZWNetworkWrapper: 0663292b081c5c2c7d9374b908d82fc19289e66a
+
+PODFILE CHECKSUM: cb865646bf68228f541f8c935c44811f5e5be8fd
+
+COCOAPODS: 1.11.3

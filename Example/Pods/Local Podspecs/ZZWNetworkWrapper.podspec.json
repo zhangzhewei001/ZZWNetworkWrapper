@@ -1,0 +1,22 @@
+{
+  "name": "ZZWNetworkWrapper",
+  "version": "0.1.0",
+  "summary": "A short description of ZZWNetworkWrapper.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhangzhewei001/ZZWNetworkWrapper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangzhewei001": "zhangzhewei@movoui.com"
+  },
+  "source": {
+    "git": "https://github.com/zhangzhewei001/ZZWNetworkWrapper.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ZZWNetworkWrapper/Classes/**/*"
+}
