@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'Pod/Classes/**/*'
   s.swift_version = '5.0'
   # s.resource_bundles = {
-  #   'ZZWNetworkWrapper' => ['ZZWNetworkWrapper/Assets/*.png']
+  #   'ZZWNetworkWrapper' => ['Pod/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
