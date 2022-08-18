@@ -12,3 +12,14 @@ public protocol Cryptoable {
     func open(_ digest: Data) throws -> Data
 }
 
+extension Cryptoable {
+    
+    func seal(_ digest: Data) throws -> Data {
+        return digest
+    }
+    
+    func open(_ digest: Data) throws -> Data {
+        return digest
+    }
+    
+}
