@@ -108,8 +108,7 @@ extension Requestable {
 
         let bodyParamaters = try bodyParamatersEncodable?.toDictionary() ?? self.bodyParamaters
         if !bodyParamaters.isEmpty {
-            urlRequest.httpBody = isSecurity ? encodeBodySecurity(bodyParamaters: bodyParamaters, bodyEncoding: bodyEncoding):
-                                               encodeBody(bodyParamaters: bodyParamaters, bodyEncoding: bodyEncoding)
+            urlRequest.httpBody = isSecurity ? encodeBodySecurity(bodyParamaters: bodyParamaters, bodyEncoding: bodyEncoding, cryptoService: config.cryptoService) : encodeBody(bodyParamaters: bodyParamaters, bodyEncoding: bodyEncoding)
         }
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
@@ -125,18 +124,23 @@ extension Requestable {
         }
     }
     
-    private func encodeBodySecurity(bodyParamaters: [String: Any], bodyEncoding: BodyEncoding) -> Data? {
+    private func encodeBodySecurity(bodyParamaters: [String: Any], bodyEncoding: BodyEncoding, cryptoService: Cryptoable) -> Data? {
         switch bodyEncoding {
         case .jsonSerializationData:
-            if let bodyData = try? JSONSerialization.data(withJSONObject: bodyParamaters, options: []),
-               var prefixData = "?!".data(using: .utf8) {
-                guard let encryptoData = EncryptService.packBagsToEncryptoData(message: bodyData) else { return nil }
-                prefixData.append(encryptoData)
-                return prefixData
+            do {
+                let data = try JSONSerialization.data(withJSONObject: bodyParamaters)
+                return try cryptoService.seal(cryptoService.seal(data))
+            }catch{
+                return nil
             }
-            return nil
+            
         case .stringEncodingAscii:
-            return bodyParamaters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true)
+            guard let data = bodyParamaters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true) else { return nil }
+            do {
+                return try cryptoService.open(data)
+            }catch{
+                return nil
+            }
         }
     }
 }

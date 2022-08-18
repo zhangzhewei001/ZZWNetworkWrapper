@@ -13,6 +13,7 @@ public enum NetworkError: Error {
     case cancelled
     case generic(Error)
     case urlGeneration
+    case cryptoError(Error)
 }
 
 public protocol NetworkCancellable {
@@ -72,8 +73,16 @@ public final class DefaultNetworkService {
                 completion(.failure(error))
             } else {
                 self.logger.log(responseData: data, response: response)
-                if shouldDecrpto {
-                    completion(.success(EncryptService.unpackBagsToData(message: data)))
+                if shouldDecrpto, let data = data {
+                    do {
+                        let decryptData = try self.config.cryptoService.open(data)
+                        completion(.success(decryptData))
+                       
+                    }catch{
+                        self.logger.log(error: NetworkError.cryptoError(error))
+                        completion(.failure(NetworkError.cryptoError(error)))
+                    }
+                    
                 }else{
                     completion(.success(data))
                 }

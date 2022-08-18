@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		698AF0AB664267E9496629AD5860D432 /* Pods-ZZWNetworkWrapper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B43A7C2E075C27D830FB66DC5960C73 /* Pods-ZZWNetworkWrapper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7452983C42D7AFFF795EE6195F339ECB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		7A4B0B8F28AE1A8B00A2611E /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8628AE1A8B00A2611E /* Cancelable.swift */; };
+		7A4B0B9028AE1A8B00A2611E /* DataTransferError+ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8728AE1A8B00A2611E /* DataTransferError+ConnectionError.swift */; };
+		7A4B0B9128AE1A8B00A2611E /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8828AE1A8B00A2611E /* ConnectionError.swift */; };
+		7A4B0B9228AE1A8B00A2611E /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8928AE1A8B00A2611E /* DataTransferService.swift */; };
+		7A4B0B9328AE1A8B00A2611E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8A28AE1A8B00A2611E /* NetworkService.swift */; };
+		7A4B0B9428AE1A8B00A2611E /* AES256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8B28AE1A8B00A2611E /* AES256.swift */; };
+		7A4B0B9528AE1A8B00A2611E /* EncryptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8C28AE1A8B00A2611E /* EncryptService.swift */; };
+		7A4B0B9628AE1A8B00A2611E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8D28AE1A8B00A2611E /* Endpoint.swift */; };
+		7A4B0B9728AE1A8B00A2611E /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B8E28AE1A8B00A2611E /* NetworkConfig.swift */; };
+		7A4B0B9928AE1ABC00A2611E /* Encryptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B0B9828AE1ABC00A2611E /* Encryptable.swift */; };
 		93FCFFF20A97DCABB0FC987EA72B4871 /* ZZWNetworkWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2380E8AF82D0B06E1B9E0159432D0A5 /* ZZWNetworkWrapper-dummy.m */; };
 		98CC0F2DCD8654E6621BC9E4C0ADFAEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		9E21714802F08918F59C32BE09263385 /* Pods-ZZWNetworkWrapper_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 139E9393615E9F8B03F8ECC463873214 /* Pods-ZZWNetworkWrapper_Example-dummy.m */; };
@@ -53,6 +63,16 @@
 		6B2A80256FC943503BF5190A36FC09D2 /* Pods-ZZWNetworkWrapper_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZZWNetworkWrapper_Example-frameworks.sh"; sourceTree = "<group>"; };
 		7261E48B803A93D446EA9789D13854D2 /* Pods-ZZWNetworkWrapper_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZZWNetworkWrapper_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7A4B0B8628AE1A8B00A2611E /* Cancelable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
+		7A4B0B8728AE1A8B00A2611E /* DataTransferError+ConnectionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataTransferError+ConnectionError.swift"; sourceTree = "<group>"; };
+		7A4B0B8828AE1A8B00A2611E /* ConnectionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		7A4B0B8928AE1A8B00A2611E /* DataTransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		7A4B0B8A28AE1A8B00A2611E /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		7A4B0B8B28AE1A8B00A2611E /* AES256.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES256.swift; sourceTree = "<group>"; };
+		7A4B0B8C28AE1A8B00A2611E /* EncryptService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptService.swift; sourceTree = "<group>"; };
+		7A4B0B8D28AE1A8B00A2611E /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		7A4B0B8E28AE1A8B00A2611E /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		7A4B0B9828AE1ABC00A2611E /* Encryptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptable.swift; sourceTree = "<group>"; };
 		7EC35C75345DE762C89683A81D3C1261 /* Pods-ZZWNetworkWrapper_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ZZWNetworkWrapper_Tests"; path = Pods_ZZWNetworkWrapper_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B43A7C2E075C27D830FB66DC5960C73 /* Pods-ZZWNetworkWrapper_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZZWNetworkWrapper_Tests-umbrella.h"; sourceTree = "<group>"; };
 		95A8F3AA7272E0E800BD35B594F510B7 /* Pods-ZZWNetworkWrapper_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZZWNetworkWrapper_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -117,6 +137,7 @@
 		0CB2261368A926C246605286427703F2 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				7A4B0B8528AE1A8B00A2611E /* Classes */,
 				61CAF1A7262E0C88A9C05F11637D461F /* LICENSE */,
 				9A00BB8D6C2C404DDB20E9BBAE736BF1 /* README.md */,
 				61F9A796253B7813689F319779834A56 /* ZZWNetworkWrapper.podspec */,
@@ -165,6 +186,24 @@
 			);
 			name = "Pods-ZZWNetworkWrapper_Example";
 			path = "Target Support Files/Pods-ZZWNetworkWrapper_Example";
+			sourceTree = "<group>";
+		};
+		7A4B0B8528AE1A8B00A2611E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7A4B0B8628AE1A8B00A2611E /* Cancelable.swift */,
+				7A4B0B8728AE1A8B00A2611E /* DataTransferError+ConnectionError.swift */,
+				7A4B0B8828AE1A8B00A2611E /* ConnectionError.swift */,
+				7A4B0B8928AE1A8B00A2611E /* DataTransferService.swift */,
+				7A4B0B8A28AE1A8B00A2611E /* NetworkService.swift */,
+				7A4B0B8B28AE1A8B00A2611E /* AES256.swift */,
+				7A4B0B8C28AE1A8B00A2611E /* EncryptService.swift */,
+				7A4B0B8D28AE1A8B00A2611E /* Endpoint.swift */,
+				7A4B0B8E28AE1A8B00A2611E /* NetworkConfig.swift */,
+				7A4B0B9828AE1ABC00A2611E /* Encryptable.swift */,
+			);
+			name = Classes;
+			path = Pod/Classes;
 			sourceTree = "<group>";
 		};
 		7F2761F8AA77A928ACA60F4CD76D5E6D /* Support Files */ = {
@@ -364,7 +403,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4B0B9028AE1A8B00A2611E /* DataTransferError+ConnectionError.swift in Sources */,
+				7A4B0B9628AE1A8B00A2611E /* Endpoint.swift in Sources */,
 				93FCFFF20A97DCABB0FC987EA72B4871 /* ZZWNetworkWrapper-dummy.m in Sources */,
+				7A4B0B9128AE1A8B00A2611E /* ConnectionError.swift in Sources */,
+				7A4B0B8F28AE1A8B00A2611E /* Cancelable.swift in Sources */,
+				7A4B0B9428AE1A8B00A2611E /* AES256.swift in Sources */,
+				7A4B0B9728AE1A8B00A2611E /* NetworkConfig.swift in Sources */,
+				7A4B0B9928AE1ABC00A2611E /* Encryptable.swift in Sources */,
+				7A4B0B9528AE1A8B00A2611E /* EncryptService.swift in Sources */,
+				7A4B0B9328AE1A8B00A2611E /* NetworkService.swift in Sources */,
+				7A4B0B9228AE1A8B00A2611E /* DataTransferService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
