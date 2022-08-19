@@ -24,6 +24,8 @@ extension CryptoError {
             return "AES256 Crypto Eroror: \(error)"
         case .decryptedDataVerificationFailed:
             return "Decrypt Cipher Text Failed To Verify by HMAC"
+        case .encryptBodyEncodingError:
+            return "Encrypt Http Body Error"
         }
     }
 }
