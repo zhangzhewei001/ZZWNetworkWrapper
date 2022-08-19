@@ -145,7 +145,7 @@ extension Requestable {
         case .chargeShowJsonEncryptData:
             do {
                 let data = try JSONSerialization.data(withJSONObject: bodyParamaters)
-                let encryptData = try cryptoService.seal(cryptoService.seal(data))
+                let encryptData = try cryptoService.seal(data)
                 guard let prefixData = "?!".data(using: .utf8) else { return nil }
                 return prefixData + encryptData
             }catch{
