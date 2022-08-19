@@ -39,7 +39,7 @@ public class Endpoint<R>: ResponseRequestable {
     public let responseDecoder: ResponseDecoder
     
     
-    init(path: String,
+    public init(path: String,
          isFullPath: Bool = false,
          method: HTTPMethodType,
          isSecurity: Bool = false,

@@ -2,7 +2,7 @@ import UIKit
 //import GZIP
 import CommonCrypto
 
-enum CryptoError: Error {
+public enum CryptoError: Error {
     case encryptBodyEncodingError
     case unspecfiedCipherText
     case createIVDataError
@@ -30,21 +30,21 @@ extension CryptoError {
     }
 }
 
-final class EncryptService: Cryptoable {
+public final class EncryptService: Cryptoable {
     
     private var cipherKey: String
-    private let LEN_IV_AES_256_CBC = 16
-    private let LEN_SHA256 = 32
-    private let defaultIV = "drowssa1drowssap"
+    private static let LEN_IV_AES_256_CBC = 16
+    private static let LEN_SHA256 = 32
+    private static let defaultIV = "drowssa1drowssap"
     
-    init(key: String) {
+    public init(key: String) {
         self.cipherKey = key
     }
     
-    func seal(_ digest: Data) throws -> Data {
+    public func seal(_ digest: Data) throws -> Data {
         do {
             //16位随机偏移量
-            let iv = String.getRandomStringWithLength(length: UInt(LEN_IV_AES_256_CBC))
+            let iv = String.getRandomStringWithLength(length: UInt(EncryptService.LEN_IV_AES_256_CBC))
 
             //16位随机偏移量Data
             guard let ivData = iv.data(using: .utf8) else {
@@ -52,7 +52,7 @@ final class EncryptService: Cryptoable {
             }
             
             //Key的Data
-            guard let keyData = obKey(key: self.cipherKey).data(using: .utf8) else{
+            guard let keyData = EncryptService.obKey(key: self.cipherKey).data(using: .utf8) else{
                 throw CryptoError.decryptKeyError
             }
             
@@ -75,18 +75,18 @@ final class EncryptService: Cryptoable {
         }
     }
     
-    func open(_ digest: Data) throws -> Data {
+    public func open(_ digest: Data) throws -> Data {
         //未能取到iv + key data长度
-        guard digest.count >= LEN_IV_AES_256_CBC + LEN_SHA256 else {
+        guard digest.count >= EncryptService.LEN_IV_AES_256_CBC + EncryptService.LEN_SHA256 else {
             throw CryptoError.unspecfiedCipherText
         }
         
         do {
-            let ivData = digest.subdata(in: Range.init(NSMakeRange(0, LEN_IV_AES_256_CBC))!)
-            let hashData = digest.subdata(in: Range.init(NSMakeRange(LEN_IV_AES_256_CBC, LEN_SHA256))!)
-            let messsageData = digest.subdata(in: Range.init(NSMakeRange(LEN_IV_AES_256_CBC + LEN_SHA256, digest.count - LEN_IV_AES_256_CBC - LEN_SHA256))!)
+            let ivData = digest.subdata(in: Range.init(NSMakeRange(0, EncryptService.LEN_IV_AES_256_CBC))!)
+            let hashData = digest.subdata(in: Range.init(NSMakeRange(EncryptService.LEN_IV_AES_256_CBC, EncryptService.LEN_SHA256))!)
+            let messsageData = digest.subdata(in: Range.init(NSMakeRange(EncryptService.LEN_IV_AES_256_CBC + EncryptService.LEN_SHA256, digest.count - EncryptService.LEN_IV_AES_256_CBC - EncryptService.LEN_SHA256))!)
 
-            guard let  keyData = obKey(key: self.cipherKey).data(using: .utf8) else{
+            guard let  keyData = EncryptService.obKey(key: self.cipherKey).data(using: .utf8) else{
                 throw CryptoError.decryptKeyError
             }
             
@@ -139,7 +139,7 @@ final class EncryptService: Cryptoable {
         return Data.init(cHMAC)
     }
     
-    func obKey(key: String) -> String {
+    public static func obKey(key: String) -> String {
         do {
             guard let keyData = Data(base64Encoded: key, options: .ignoreUnknownCharacters) else {
                 return ""
