@@ -3,6 +3,7 @@ import UIKit
 import CommonCrypto
 
 enum CryptoError: Error {
+    case encryptBodyEncodingError
     case unspecfiedCipherText
     case createIVDataError
     case decryptKeyError

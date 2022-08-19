@@ -19,6 +19,7 @@ public enum HTTPMethodType: String {
 public enum BodyEncoding {
     case jsonSerializationData
     case stringEncodingAscii
+    case chargeShowJsonEncryptData
 }
 
 public class Endpoint<R>: ResponseRequestable {
@@ -117,7 +118,7 @@ extension Requestable {
     
     private func encodeBody(bodyParamaters: [String: Any], bodyEncoding: BodyEncoding) -> Data? {
         switch bodyEncoding {
-        case .jsonSerializationData:
+        case .jsonSerializationData, .chargeShowJsonEncryptData:
             return try? JSONSerialization.data(withJSONObject: bodyParamaters)
         case .stringEncodingAscii:
             return bodyParamaters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true)
@@ -137,7 +138,16 @@ extension Requestable {
         case .stringEncodingAscii:
             guard let data = bodyParamaters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true) else { return nil }
             do {
-                return try cryptoService.open(data)
+                return try cryptoService.seal(data)
+            }catch{
+                return nil
+            }
+        case .chargeShowJsonEncryptData:
+            do {
+                let data = try JSONSerialization.data(withJSONObject: bodyParamaters)
+                let encryptData = try cryptoService.seal(cryptoService.seal(data))
+                guard let prefixData = "?!".data(using: .utf8) else { return nil }
+                return prefixData + encryptData
             }catch{
                 return nil
             }
