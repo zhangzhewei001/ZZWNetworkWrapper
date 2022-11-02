@@ -130,7 +130,7 @@ extension Requestable {
         case .jsonSerializationData:
             do {
                 let data = try JSONSerialization.data(withJSONObject: bodyParamaters)
-                return try cryptoService.seal(cryptoService.seal(data))
+                return try cryptoService.seal(data)
             }catch{
                 return nil
             }
